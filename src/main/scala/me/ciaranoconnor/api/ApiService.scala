@@ -7,7 +7,7 @@ trait ApiService extends RouteConcatenation with UserHttpService with ResourceSe
 
   private implicit val _ = system.dispatcher
 
-  def routes = userRoutes ~
+  val routes = userRoutes ~
     resourceRoutes ~
     new SwaggerDocService(system).routes
 }

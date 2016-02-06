@@ -5,7 +5,7 @@ This project aims to be a template for Akka-Http rest backends with Angular fron
 
 To run: sbt "~ re-start"  
 The project will automatically reload when source code changes.  
-To test: sbt "project sprayplayground" test  
+To test: sbt "test"
 
 Goto:  
 http://localhost:8080/  
@@ -13,4 +13,7 @@ http://localhost:8080/swagger
 
 The frontend uses NPM, Bower and Gulp.  
 To install the bower components run *bower install*  
-Similarly for the NPM dependencies *npm install*
+Similarly for the NPM dependencies *npm install*  
+
+###See More
+Swagger: https://github.com/swagger-akka-http/swagger-akka-http
