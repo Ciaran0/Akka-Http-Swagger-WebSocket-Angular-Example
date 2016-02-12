@@ -1,4 +1,4 @@
-angular.module('MyApp', ['ngRoute','ngSanitize'])
+angular.module('MyApp', ['ngRoute','ngSanitize','ngWebSocket'])
     .config(['$locationProvider','$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.html5Mode(true);
         $routeProvider

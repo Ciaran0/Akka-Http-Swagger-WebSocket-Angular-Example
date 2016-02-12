@@ -13,6 +13,7 @@ trait BootedCore extends Core {
     */
   implicit lazy val system = ActorSystem("akka-http")
 
+
   /**
     * Ensure that the constructed ActorSystem is shut down when the JVM shuts down
     */
