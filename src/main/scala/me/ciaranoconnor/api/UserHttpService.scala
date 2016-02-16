@@ -9,7 +9,6 @@ import akka.http.scaladsl.model.ws.{TextMessage}
 import akka.stream.scaladsl.{Sink, Source}
 import io.swagger.annotations._
 import me.ciaranoconnor.models.User
-import me.ciaranoconnor.streams.flows.MyData
 import org.slf4j.LoggerFactory
 import scala.util.Random
 
@@ -37,7 +36,6 @@ trait UserHttpService extends Directives with SprayJsonSupport {
             complete {
               //In a real application retrievedUsers would be retrieved from a database
               val retrievedUsers  = List(User(1, "Tom"),User(2,"bob"))
-              system.eventStream.publish(MyData("test"))
               log.debug("Getting users")
               retrievedUsers match {
                 case head::tail => retrievedUsers

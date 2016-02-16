@@ -3,7 +3,6 @@ package me.ciaranoconnor.app
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 import me.ciaranoconnor.api.ApiService
-import me.ciaranoconnor.streams.flows.MyData
 import scala.util.{ Success, Failure }
 
 object Boot extends App with Config with BootedCore with ApiService {
@@ -12,15 +11,6 @@ object Boot extends App with Config with BootedCore with ApiService {
   import system.dispatcher
 
   implicit val materializer = ActorMaterializer()
-
-  def ran = scala.util.Random
-  def sendInt(): Unit ={
-    Thread sleep 4000
-    var r = ran.nextInt()
-    log.info(s"sending $r")
-    system.eventStream.publish(MyData("help "+r))
-    sendInt()
-  }
 
   val binding = Http().bindAndHandle(routes, httpInterface, httpPort)
   //binding failure
@@ -32,8 +22,5 @@ object Boot extends App with Config with BootedCore with ApiService {
       log.error(s"Binding failed with ${e.getMessage}")
       system.terminate()
   }
-
-  sendInt()
-
 
 }
